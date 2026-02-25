@@ -3,10 +3,9 @@ Type: Package
 Title: Shared Data Quality Helpers for WildCrossData Datapaper
 Version: 0.1.0
 Authors@R: c(
-    person(given = "Data Quality Team",
-           family = "NERF/UFRGS",
-           role = c("aut", "cre"),
-           email = "dataquality@example.org")
+    person(given = "R.", family = "Dornas", role = c("aut", "cre"), email = "passagens.fauna@gmail.com"),
+    person(given = "I.", family = "Franceschi", role = "aut"),
+    person(given = "B.", family = "Dasoler", role = "aut")
     )
 Description: Shared utility functions used across the Quarto chapters and
     scripts for data quality checks in the WildCrossData Latin America
