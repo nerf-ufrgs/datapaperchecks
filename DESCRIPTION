@@ -1,0 +1,33 @@
+Package: datapaperchecks
+Type: Package
+Title: Shared Data Quality Helpers for WildCrossData Datapaper
+Version: 0.1.0
+Authors@R: c(
+    person(given = "Data Quality Team",
+           family = "NERF/UFRGS",
+           role = c("aut", "cre"),
+           email = "dataquality@example.org")
+    )
+Description: Shared utility functions used across the Quarto chapters and
+    scripts for data quality checks in the WildCrossData Latin America
+    datapaper workflow.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 4.1.0)
+Imports:
+    cli,
+    dplyr,
+    janitor,
+    lubridate,
+    osmdata,
+    purrr,
+    readxl,
+    rlang,
+    sf,
+    stringi,
+    stringr,
+    tibble
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
