@@ -8,7 +8,7 @@
 #' @param sheet Sheet name to read from each workbook.
 #' @param na Values to treat as missing.
 #' @param results If `FALSE`, returns only the named file paths.
-#' @param set_col_types If `TRUE`, uses `set_column_types()` metadata;
+#' @param set_col_types If `TRUE`, uses package-internal metadata via `set_column_types()`;
 #'   otherwise reads all columns as text.
 #' @param recurse If `TRUE`, searches recursively in `path`.
 #'

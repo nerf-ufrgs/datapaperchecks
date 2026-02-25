@@ -1,19 +1,25 @@
 #' Read Column Types Metadata
 #'
 #' @description
-#' Reads column type definitions from `support/column_types.xlsx` for a given
-#' sheet.
+#' Returns the predefined column type metadata stored internally in the package
+#' for a given spreadsheet.
 #'
-#' @param sheet Character scalar with the sheet name in
-#'   `support/column_types.xlsx`.
+#' @param sheet Character scalar with the target spreadsheet name (for example,
+#'   `"Camera_trap"` or `"Underpasses"`).
 #'
 #' @return A character vector of column types.
 #' @export
 set_column_types <- function(sheet = NULL) {
-  readxl::read_excel(
-    path = "support/column_types.xlsx",
-    sheet = sheet
-  ) |>
-    dplyr::select(2) |>
-    dplyr::pull()
+  if (is.null(sheet) || length(sheet) != 1 || is.na(sheet) || sheet == "") {
+    cli::cli_abort("Argument {.arg sheet} must be a single, non-empty sheet name.")
+  }
+
+  if (!sheet %in% names(.datapaper_column_types)) {
+    cli::cli_abort(c(
+      "Unknown sheet name: {.val {sheet}}.",
+      "i" = "Available sheets: {.val {names(.datapaper_column_types)}}"
+    ))
+  }
+
+  .datapaper_column_types[[sheet]]
 }

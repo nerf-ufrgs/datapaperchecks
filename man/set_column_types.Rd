@@ -7,13 +7,13 @@
 set_column_types(sheet = NULL)
 }
 \arguments{
-\item{sheet}{Character scalar with the sheet name in
-\code{support/column_types.xlsx}.}
+\item{sheet}{Character scalar with the target spreadsheet name (for example,
+\code{"Camera_trap"} or \code{"Underpasses"}).}
 }
 \value{
 A character vector of column types.
 }
 \description{
-Reads column type definitions from \code{support/column_types.xlsx} for a given
-sheet.
+Returns the predefined column type metadata stored internally in the package
+for a given spreadsheet.
 }

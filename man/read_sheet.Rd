@@ -22,7 +22,7 @@ read_sheet(
 
 \item{results}{If \code{FALSE}, returns only the named file paths.}
 
-\item{set_col_types}{If \code{TRUE}, uses \code{set_column_types()} metadata;
+\item{set_col_types}{If \code{TRUE}, uses package-internal metadata via \code{set_column_types()};
 otherwise reads all columns as text.}
 
 \item{recurse}{If \code{TRUE}, searches recursively in \code{path}.}
