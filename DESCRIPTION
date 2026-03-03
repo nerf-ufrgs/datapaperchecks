@@ -1,7 +1,7 @@
 Package: datapaperchecks
 Type: Package
 Title: Shared Data Quality Helpers for WildCrossData Datapaper
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person(given = "R.", family = "Dornas", role = c("aut", "cre"), email = "passagens.fauna@gmail.com"),
     person(given = "I.", family = "Franceschi", role = "aut"),
@@ -18,15 +18,19 @@ Depends:
 Imports:
     cli,
     dplyr,
+    glue,
     janitor,
     lubridate,
+    openxlsx2,
     osmdata,
     purrr,
     readxl,
     rlang,
     sf,
+    stringdist,
     stringi,
     stringr,
-    tibble
+    tibble,
+    tidyr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
