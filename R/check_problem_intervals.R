@@ -46,12 +46,12 @@ check_problem_intervals <- function(ct_list) {
       ) |>
       dplyr::filter(!is.na(problem_n)) |>
       dplyr::mutate(
-        part_order = dplyr::case_match(
+        part_order = dplyr::recode_values(
           problem_part,
           "from" ~ 1L,
           "to" ~ 2L,
           "interval" ~ 3L,
-          .default = 99L
+          default = 99L
         )
       ) |>
       dplyr::arrange(problem_n, part_order, col)

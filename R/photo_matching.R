@@ -33,11 +33,12 @@ validate_source <- function(source, allowed = c("ct", "under", "over")) {
 load_source_data <- function(source, path = "Example/12", na = c("NA", "-")) {
   source <- as.character(source)
 
-  sheet_name <- dplyr::case_match(
+  sheet_name <- dplyr::recode_values(
     source,
     "ct" ~ "Camera_trap",
     "under" ~ "Underpasses",
-    "over" ~ "Overpasses"
+    "over" ~ "Overpasses",
+    default = NA_character_
   )
 
   if (is.na(sheet_name)) {
