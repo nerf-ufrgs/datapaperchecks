@@ -7,7 +7,6 @@
 #' @param x Character vector with camera-problem labels.
 #'
 #' @return A normalized character vector.
-#' @export
 normalize_camera_problem <- function(x) {
   x_norm <- x |>
     as.character()

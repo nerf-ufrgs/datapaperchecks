@@ -7,7 +7,6 @@
 #' @param allowed Character vector of accepted source values.
 #'
 #' @return Invisible `TRUE` when validation passes.
-#' @export
 validate_source <- function(source, allowed = c("ct", "under", "over")) {
   if (!source %in% allowed) {
     cli::cli_abort(
@@ -29,7 +28,6 @@ validate_source <- function(source, allowed = c("ct", "under", "over")) {
 #' @param na Values to treat as missing.
 #'
 #' @return A named list of tibbles returned by [read_sheet()].
-#' @export
 load_source_data <- function(source, path = "Example/12", na = c("NA", "-")) {
   source <- as.character(source)
 
@@ -63,7 +61,6 @@ load_source_data <- function(source, path = "Example/12", na = c("NA", "-")) {
 #' @param first_take If `TRUE`, aborts when names differ.
 #'
 #' @return Invisible `TRUE` when check passes.
-#' @export
 ensure_dataset_names_match <- function(
     datasets,
     media_list,
@@ -89,7 +86,6 @@ ensure_dataset_names_match <- function(
 #' @param source Source identifier (`ct`, `under`, `over`).
 #'
 #' @return Character vector of expected filenames.
-#' @export
 extract_filenames_on_sheet <- function(df, source) {
   column <- if (source == "ct") "Camera_vision_photo" else "Structure_photo"
   col_sym <- rlang::sym(column)
@@ -109,7 +105,6 @@ extract_filenames_on_sheet <- function(df, source) {
 #' @param source Source identifier (`ct`, `under`, `over`).
 #'
 #' @return Filtered tibble with media candidates.
-#' @export
 media_candidates <- function(dataset_media, source) {
   dataset_media |>
     dplyr::filter(!stringr::str_detect(value, glue::glue("\\/{source}\\/")))
@@ -125,7 +120,6 @@ media_candidates <- function(dataset_media, source) {
 #' @param media Character vector of media filenames.
 #'
 #' @return Tibble with distance matrix in wide format and `match_exactly`.
-#' @export
 stringdist_table <- function(filenames_on_sheet, media) {
   stringdist::stringdistmatrix(
     filenames_on_sheet,
@@ -149,7 +143,6 @@ stringdist_table <- function(filenames_on_sheet, media) {
 #' @param df_stringdist Tibble returned by `stringdist_table()`.
 #'
 #' @return Tibble with candidate matches and helper flags.
-#' @export
 build_match_candidates <- function(df_stringdist) {
   df_stringdist |>
     tidyr::pivot_longer(
@@ -181,7 +174,6 @@ build_match_candidates <- function(df_stringdist) {
 #'   destination folder for the dataset/source.
 #'
 #' @return Filtered tibble of match candidates.
-#' @export
 dedupe_matches <- function(
     match_candidates,
     files_to_exclude = character(),
@@ -226,7 +218,6 @@ dedupe_matches <- function(
 #' @param target_dir Destination directory for copied files.
 #'
 #' @return Tibble with copied filenames and destination paths.
-#' @export
 copy_exact_matches <- function(
     df_stringdist,
     media_without_source,
@@ -275,7 +266,6 @@ copy_exact_matches <- function(
 #' @param media_root Root path for destination media tree.
 #'
 #' @return Tibble of match candidates for manual review.
-#' @export
 process_dataset <- function(
     df,
     dataset_name,
@@ -348,7 +338,6 @@ process_dataset <- function(
 #' @param media_root Root path for destination media tree.
 #'
 #' @return Tibble with match candidates for the given source.
-#' @export
 check_match_media <- function(
     source = NULL,
     media_list,
@@ -400,7 +389,6 @@ check_match_media <- function(
 #' @param output_file Path to output workbook.
 #'
 #' @return Named list of partial matches grouped by dataset.
-#' @export
 save_partial_matches <- function(
     result,
     output_file = glue::glue(
@@ -465,7 +453,6 @@ save_partial_matches <- function(
 #' @param sources Character vector of processed sources.
 #'
 #' @return Logical vector from `file.remove()`.
-#' @export
 cleanup_media_root <- function(result, media_tbl, sources) {
   sources_regex <- glue::glue_collapse(sources, "|")
 

@@ -11,7 +11,6 @@
 #'
 #' @return A data frame created by row-binding the selected component across
 #'   all list elements, with a `dataset` identifier column.
-#' @export
 extract_issue <- function(x, component) {
   nms <- x |>
     purrr::map(names) |>
