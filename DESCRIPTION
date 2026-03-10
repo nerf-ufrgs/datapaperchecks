@@ -1,7 +1,7 @@
 Package: datapaperchecks
 Type: Package
 Title: Shared Data Quality Helpers for WildCrossData Datapaper
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: c(
     person(given = "R.", family = "Dornas", role = c("aut", "cre"), email = "passagens.fauna@gmail.com"),
     person(given = "I.", family = "Franceschi", role = "aut"),
